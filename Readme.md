@@ -30,6 +30,7 @@ This repo uses [DoTween](http://dotween.demigiant.com/inde) library to tween dif
 These effects are supported:
 
 - Moving things:
+  - Move objects with tweens.
   - Stretch in move direction.
   - Rotate in move direction.
   - Trail or particle
