@@ -6,7 +6,8 @@ Based on [Juice it or loose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg) tal
 
 ### 1- Color
 
-![image](https://user-images.githubusercontent.com/6388730/96587305-08db3700-12ef-11eb-96ef-3fcbd571c6bc.png)
+![image](/uploads/982cd0b01ead0d7971f793a9521f0fa7/image.png)
+
 Make sure your things have fun colors!
 This repository provides some color palettes to use.
 You also can make your own color palettes from [Adobe Colors](https://color.adobe.com/create/color-wheel) or [Coolors](https://coolors.co/palettes/popular) or read [this tutorial](https://gamedevelopment.tutsplus.com/articles/picking-a-color-palette-for-your-games-artwork--gamedev-1174) to get more information about this topic.
