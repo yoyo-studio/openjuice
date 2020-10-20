@@ -7,6 +7,7 @@ namespace OpenJuice
     public abstract class BaseTransition : Juicer
     {
         [SerializeField] protected float duration = 0.4f;
+        [SerializeField] protected float delay = 0;
         [SerializeField] protected Ease easeType = Ease.OutQuart;
         [SerializeField] protected TransitionType transitionType = TransitionType.To;
         [Tooltip("-1 for infinit loop")] [SerializeField] protected int loop = 1;

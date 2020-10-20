@@ -29,7 +29,7 @@ namespace OpenJuice
         }
         private Tweener GetTweener(Vector3 target)
         {
-            return transform.DOMove(target, duration).SetEase(easeType).SetLoops(loop, loopType);
+            return transform.DOMove(target, duration).SetEase(easeType).SetLoops(loop, loopType).SetDelay(delay);
         }
     }
 }
