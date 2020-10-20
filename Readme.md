@@ -4,15 +4,15 @@ Based on [Juice it or loose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg) tal
 
 ## Features:
 
-### 1- Color
+## 1- Color
 
-![image](/uploads/982cd0b01ead0d7971f793a9521f0fa7/image.png)
+![image](https://git.cafebazaar.ir/omid.saadat/openjuice/uploads/982cd0b01ead0d7971f793a9521f0fa7/image.png)
 
 Make sure your things have fun colors!
 This repository provides some color palettes to use.
 You also can make your own color palettes from [Adobe Colors](https://color.adobe.com/create/color-wheel) or [Coolors](https://coolors.co/palettes/popular) or read [this tutorial](https://gamedevelopment.tutsplus.com/articles/picking-a-color-palette-for-your-games-artwork--gamedev-1174) to get more information about this topic.
 
-#### Usage:
+### Usage:
 
 1- Create a ColorPaletteScriptable Object or use pre-made ones. and fill it with some colorName objects and colors pairs. (you can use premade colorNameObjects or create new ones from "OpenJuice/Coloring/ColorNameObject" in create asset menu)
 
@@ -24,10 +24,14 @@ Note: this will only change colors for current scene openned only. if you have m
 
 You can also check `01_ColorPaletteExampleScene` scene to test pre-made color palettes.
 
-### 2- Tweening
+## 2- Tweening
 
 This repo uses [DoTween](http://dotween.demigiant.com/inde) library to tween different things.
 These effects are supported:
+
+## Move Transition:
+
+![MoveTransitions](https://git.cafebazaar.ir/omid.saadat/openjuice/uploads/a8d4ff0a1d6a902bebeabd43568f9fa8/MoveTransitions.gif)
 
 - Moving things:
   - Move objects with tweens.
