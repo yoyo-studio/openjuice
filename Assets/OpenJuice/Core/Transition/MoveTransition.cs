@@ -10,7 +10,7 @@ namespace OpenJuice
         {
             if (transitionType == TransitionType.To)
             {
-                return relative == false ? GetTweener(targetPosition) : GetTweener(targetPosition).SetRelative();
+                return relative == false ? MakeTweener(targetPosition) : MakeTweener(targetPosition).SetRelative();
             }
             else
             {
@@ -18,16 +18,16 @@ namespace OpenJuice
                 {
                     var startPosition = transform.position;
                     transform.position = targetPosition;
-                    return GetTweener(startPosition);
+                    return MakeTweener(startPosition);
                 }
                 else
                 {
                     transform.position += targetPosition;
-                    return GetTweener(transform.position - targetPosition);
+                    return MakeTweener(transform.position - targetPosition);
                 }
             }
         }
-        private Tweener GetTweener(Vector3 target)
+        private Tweener MakeTweener(Vector3 target)
         {
             return transform.DOMove(target, duration).SetEase(easeType).SetLoops(loop, loopType).SetDelay(delay);
         }

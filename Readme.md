@@ -31,6 +31,8 @@ These effects are supported:
 
 ## Move Transition:
 
+Simply Add MoveTransition component to your GameObjects and config your desired values.
+
 ![MoveTransitions](https://git.cafebazaar.ir/omid.saadat/openjuice/uploads/a8d4ff0a1d6a902bebeabd43568f9fa8/MoveTransitions.gif)
 
 - Moving things:

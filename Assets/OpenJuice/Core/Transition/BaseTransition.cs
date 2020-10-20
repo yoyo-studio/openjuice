@@ -20,6 +20,8 @@ namespace OpenJuice
             tween = MakeTweener();
         }
 
+        public Tweener GetTweener() => tween;
+
         protected abstract Tweener MakeTweener();
     }
 }

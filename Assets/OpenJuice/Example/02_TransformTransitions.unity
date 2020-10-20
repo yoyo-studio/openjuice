@@ -632,17 +632,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 318741318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5d7e2e7f4b1ff4fa5456e672482e9b, type: 3}
+  m_Script: {fileID: 11500000, guid: af4b58bb212824c429e44e4cfd3345c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.4
   delay: 0
   easeType: 12
-  transitionType: 0
+  transitionType: 1
   loop: -1
   loopType: 1
   relative: 0
-  targetPosition: {x: 2, y: 2, z: 0}
+  targetRotation: {x: 0, y: 0, z: 0}
 --- !u!21 &326889390
 Material:
   serializedVersion: 6
@@ -931,17 +931,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 664106134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5d7e2e7f4b1ff4fa5456e672482e9b, type: 3}
+  m_Script: {fileID: 11500000, guid: c59ac9215bb2dbf43999f62f64e5ab13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0.4
   delay: 0
-  easeType: 30
+  easeType: 12
   transitionType: 1
   loop: -1
   loopType: 1
-  relative: 1
-  targetPosition: {x: 0, y: -2, z: 0}
+  relative: 0
+  targetScale: {x: 2, y: 2, z: 2}
 --- !u!21 &1111655794
 Material:
   serializedVersion: 6
@@ -1387,12 +1387,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1
   delay: 0
-  easeType: 24
+  easeType: 12
   transitionType: 0
-  loop: 1
+  loop: -1
   loopType: 1
   relative: 1
-  targetPosition: {x: 0, y: 200, z: 0}
+  targetPosition: {x: 0, y: 500, z: 0}
 --- !u!1 &1880211894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,8 +1505,8 @@ MonoBehaviour:
   transitionType: 1
   loop: -1
   loopType: 1
-  relative: 0
-  targetPosition: {x: 2, y: 2, z: 0}
+  relative: 1
+  targetPosition: {x: 0, y: -2, z: 0}
 --- !u!21 &1892844391
 Material:
   serializedVersion: 6
