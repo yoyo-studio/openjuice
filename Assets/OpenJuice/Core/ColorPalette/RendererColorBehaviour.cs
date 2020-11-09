@@ -8,10 +8,10 @@ namespace OpenJuice
         Renderer _renderer;
         public override void UpdateColor()
         {
-            if (_renderer == null)  _renderer = GetComponent<Renderer>();
+            if (_renderer == null) _renderer = GetComponent<Renderer>();
             var colorNameIndex = ColorPalette.currentColorPalette.colors.FindIndex(x => x.colorNameObject.name == colorNameObject.name);
             if (colorNameIndex != -1)
-                _renderer.sharedMaterial.color = ColorPalette.currentColorPalette.colors[colorNameIndex].color;
+                _renderer.sharedMaterial.SetColor("_Color", ColorPalette.currentColorPalette.colors[colorNameIndex].color);
         }
     }
 }

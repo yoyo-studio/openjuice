@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OpenJuice
 {
-    public abstract class BaseTransition : Juicer
+    public abstract class BaseTransition : MonoBehaviour
     {
         [SerializeField] protected float duration = 0.4f;
         [SerializeField] protected float delay = 0;

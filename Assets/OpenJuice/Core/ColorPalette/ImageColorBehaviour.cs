@@ -11,7 +11,7 @@ namespace OpenJuice
         {
             if (image == null) image = GetComponent<Image>();
             var colorNameIndex = ColorPalette.currentColorPalette.colors.FindIndex(x => x.colorNameObject.name == colorNameObject.name);
-            if (colorNameIndex != -1)
+            if (colorNameIndex != -1 && image != null)
                 image.color = ColorPalette.currentColorPalette.colors[colorNameIndex].color;
         }
     }
