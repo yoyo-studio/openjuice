@@ -6,14 +6,23 @@ namespace OpenJuice
 {
     public abstract class BaseTransition : MonoBehaviour
     {
-        [SerializeField] protected float duration = 0.4f;
-        [SerializeField] protected float delay = 0;
-        [SerializeField] protected Ease easeType = Ease.OutQuart;
-        [SerializeField] protected TransitionType transitionType = TransitionType.To;
-        [Tooltip("-1 for infinit loop")] [SerializeField] protected int loop = 1;
-        [SerializeField] protected LoopType loopType = LoopType.Yoyo;
-        [SerializeField] protected bool relative = true;
+        [SerializeField] private float duration = 0.4f;
+        [SerializeField] private float delay = 0;
+        [SerializeField] private Ease easeType = Ease.OutQuart;
+        [SerializeField] private TransitionType transitionType = TransitionType.To;
+        [Tooltip("-1 for infinit loop")] [SerializeField] private int loop = 1;
+        [SerializeField] private LoopType loopType = LoopType.Yoyo;
+        [SerializeField] private bool relative = true;
         protected Tweener tween;
+
+        public float Duration { get => duration; set => duration = value; }
+        public float Delay { get => delay; set => delay = value; }
+        public Ease EaseType { get => easeType; set => easeType = value; }
+        public TransitionType TransitionType { get => transitionType; set => transitionType = value; }
+        public int Loop { get => loop; set => loop = value; }
+        public LoopType LoopType { get => loopType; set => loopType = value; }
+        public bool Relative { get => relative; set => relative = value; }
+
         public void Start()
         {
             if (tween != null) DOTween.Kill(tween.id);

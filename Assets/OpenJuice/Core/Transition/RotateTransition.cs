@@ -9,13 +9,13 @@ namespace OpenJuice
         [SerializeField] Vector3 targetRotation = Vector3.zero;
         protected override Tweener MakeTweener()
         {
-            if (transitionType == TransitionType.To)
+            if (TransitionType == TransitionType.To)
             {
-                return relative == false ? MakeTweener(targetRotation) : MakeTweener(targetRotation).SetRelative();
+                return Relative == false ? MakeTweener(targetRotation) : MakeTweener(targetRotation).SetRelative();
             }
             else
             {
-                if (relative == false)
+                if (Relative == false)
                 {
                     var startRotation = transform.localRotation.eulerAngles;
                     transform.Rotate(targetRotation);
@@ -31,7 +31,7 @@ namespace OpenJuice
 
         private Tweener MakeTweener(Vector3 target)
         {
-            return transform.DOLocalRotate(target, duration).SetEase(easeType).SetLoops(loop, loopType).SetDelay(delay);
+            return transform.DOLocalRotate(target, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay);
         }
     }
 }

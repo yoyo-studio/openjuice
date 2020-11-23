@@ -6,30 +6,33 @@ namespace OpenJuice
     public class MoveTransition : BaseTransition
     {
         [SerializeField] Vector3 targetPosition = Vector3.zero;
+
+        public Vector3 TargetPosition { get => targetPosition; set => targetPosition = value; }
+
         protected override Tweener MakeTweener()
         {
-            if (transitionType == TransitionType.To)
+            if (TransitionType == TransitionType.To)
             {
-                return relative == false ? MakeTweener(targetPosition) : MakeTweener(targetPosition).SetRelative();
+                return Relative == false ? MakeTweener(TargetPosition) : MakeTweener(TargetPosition).SetRelative();
             }
             else
             {
-                if (relative == false)
+                if (Relative == false)
                 {
                     var startPosition = transform.position;
-                    transform.position = targetPosition;
+                    transform.position = TargetPosition;
                     return MakeTweener(startPosition);
                 }
                 else
                 {
-                    transform.position += targetPosition;
-                    return MakeTweener(transform.position - targetPosition);
+                    transform.position += TargetPosition;
+                    return MakeTweener(transform.position - TargetPosition);
                 }
             }
         }
         private Tweener MakeTweener(Vector3 target)
         {
-            return transform.DOMove(target, duration).SetEase(easeType).SetLoops(loop, loopType).SetDelay(delay);
+            return transform.DOMove(target, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace OpenJuice
 {
     public class LightningEffect : Effect
     {
-        [SerializeField] GameObject lightGameObject;
+        [SerializeField] GameObject lightGameObject = null;
         public override void PlayStartEffect()
         {
             base.PlayStartEffect();

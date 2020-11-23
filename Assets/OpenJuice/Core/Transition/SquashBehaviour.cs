@@ -5,19 +5,19 @@ namespace OpenJuice
 {
     public class SquashBehaviour : MonoBehaviour
     {
-        [SerializeField] float squashAmount = 1;
-        [SerializeField] float bounceBackDuration = 0.4f;
+        // [SerializeField] float squashAmount = 1;
+        // [SerializeField] float bounceBackDuration = 0.4f;
         Vector3 previousPosition = Vector3.zero;
         Vector3 startScale = Vector3.one;
         private bool stopped;
-        private bool startBounceBack;
+        // private bool startBounceBack;
 
         private void Awake()
         {
             previousPosition = transform.position;
             startScale = transform.localScale;
             stopped = true;
-            startBounceBack = false;
+            // startBounceBack = false;
         }
         private void Update()
         {
@@ -34,7 +34,7 @@ namespace OpenJuice
             else if (stopped == false)
             {
                 stopped = true;
-                startBounceBack = true;
+                // startBounceBack = true;
             }
 
             // if (startBounceBack)

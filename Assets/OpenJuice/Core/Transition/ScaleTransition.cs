@@ -9,13 +9,13 @@ namespace OpenJuice
         [SerializeField] Vector3 targetScale = Vector3.one;
         protected override Tweener MakeTweener()
         {
-            if (transitionType == TransitionType.To)
+            if (TransitionType == TransitionType.To)
             {
-                return relative == false ? MakeTweener(targetScale) : MakeTweener(targetScale).SetRelative();
+                return Relative == false ? MakeTweener(targetScale) : MakeTweener(targetScale).SetRelative();
             }
             else
             {
-                if (relative == false)
+                if (Relative == false)
                 {
                     var startScale = transform.localScale;
                     transform.localScale = targetScale;
@@ -30,7 +30,7 @@ namespace OpenJuice
         }
         private Tweener MakeTweener(Vector3 target)
         {
-            return transform.DOScale(target, duration).SetEase(easeType).SetLoops(loop, loopType).SetDelay(delay);
+            return transform.DOScale(target, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace OpenJuice
 {
     public class ButtonToSpawnObject : BaseButton
     {
-        [SerializeField] string effectID;
+        [SerializeField] string effectID = "";
         protected override void OnPressed()
         {
             Effect effect = Juicer.Instance.PlayEffect(effectID);
