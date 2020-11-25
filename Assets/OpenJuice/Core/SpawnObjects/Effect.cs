@@ -14,16 +14,16 @@ namespace OpenJuice
 
         public virtual void PlayStartEffect()
         {
-            if (startClip != null) Juicer.Instance.PlayAudio(startClip, AudioType.SFX, PlayLoopEffect);
+            if (startClip != null) Juicer.Instance.PlaySfx(startClip, PlayLoopEffect);
             effectEnabled = true;
         }
-        public virtual void PlayLoopEffect() { if (loopClip != null) loopSource = Juicer.Instance.PlayAudio(loopClip, AudioType.SFX, true); }
-        public virtual void PlayEndEffect() { if (endClip != null) Juicer.Instance.PlayAudio(endClip, AudioType.SFX); }
+        public virtual void PlayLoopEffect() { if (loopClip != null) loopSource = Juicer.Instance.PlaySfx(loopClip, true); }
+        public virtual void PlayEndEffect() { if (endClip != null) Juicer.Instance.PlaySfx(endClip); }
         private void OnDisable()
         {
             if (effectEnabled == true)
             {
-                if (loopSource != null) Juicer.Instance.ReleaseAudio(loopSource, AudioType.SFX);
+                if (loopSource != null) Juicer.Instance.StopSFX(loopSource);
                 PlayEndEffect();
             }
             effectEnabled = false;

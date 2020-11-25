@@ -32,6 +32,16 @@ namespace OpenJuice
             audioSource.Stop();
             audioSourcePool.Release(audioSource);
         }
+        public void ReleaseSource(AudioClip clip)
+        {
+            foreach (var audioSource in audioSourcePool.ActiveObjects)
+            {
+                if (audioSource.clip == clip)
+                {
+                    ReleaseSource(audioSource);
+                }
+            }
+        }
         public AudioSource Play(AudioClip clip, bool loop)
         {
             AudioSource audioSource = GetFreeAudioSource(clip);

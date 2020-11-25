@@ -10,6 +10,7 @@ public class ObjectPool<T> where T : class
     private readonly Action<T> _onGet;
     private readonly Action<T> _onRelease;
     private readonly Func<T> _onNew;
+    public List<T> ActiveObjects => _unreleasedObjects;
 
     public ObjectPool(int capacity,
                         Func<T> actionNew,

@@ -4,11 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace OpenJuice
 {
-    public enum AudioType
-    {
-        Music,
-        SFX,
-    }
     public class Juicer : Singleton<Juicer>
     {
         private Dictionary<string, ObjectPool<Effect>> effectsPool;
@@ -92,12 +87,13 @@ namespace OpenJuice
                 Debug.LogError("No pool was found for effect: " + effect.Id);
             }
         }
-        public AudioSource PlayAudio(AudioClip clip, AudioType audioType, bool loop = false) => audioType == AudioType.SFX ? sfxAudioPlayer.Play(clip, loop) : musicAudioPlayer.Play(clip, loop);
-        public AudioSource PlayAudio(AudioClip clip, AudioType audioType, Action onComplete) => audioType == AudioType.SFX ? sfxAudioPlayer.Play(clip, onComplete) : musicAudioPlayer.Play(clip, onComplete);
-        public void ReleaseAudio(AudioSource audioSource, AudioType audioType)
-        {
-            if (audioType == AudioType.SFX) sfxAudioPlayer.ReleaseSource(audioSource);
-            else musicAudioPlayer.ReleaseSource(audioSource);
-        }
+        public AudioSource PlaySfx(AudioClip clip, bool loop = false) => sfxAudioPlayer.Play(clip, loop);
+        public AudioSource PlaySfx(AudioClip clip, Action onComplete) => sfxAudioPlayer.Play(clip, onComplete);
+        public AudioSource PlayMusic(AudioClip clip, bool loop = true) => musicAudioPlayer.Play(clip, loop);
+        public AudioSource PlayMusic(AudioClip clip, Action onComplete) => musicAudioPlayer.Play(clip, onComplete);
+        public void StopSFX(AudioClip clip) => sfxAudioPlayer.ReleaseSource(clip);
+        public void StopSFX(AudioSource audioSource) => sfxAudioPlayer.ReleaseSource(audioSource);
+        public void StopMusic(AudioClip clip) => musicAudioPlayer.ReleaseSource(clip);
+        public void StopMusic(AudioSource audioSource) => musicAudioPlayer.ReleaseSource(audioSource);
     }
 }

@@ -6,6 +6,6 @@ namespace OpenJuice
     public class ButtonSFX : BaseButton
     {
         [SerializeField] AudioClip clip = null;
-        protected override void OnPressed() => Juicer.Instance.PlayAudio(clip, AudioType.SFX);
+        protected override void OnPressed() => Juicer.Instance.PlaySfx(clip);
     }
 }
