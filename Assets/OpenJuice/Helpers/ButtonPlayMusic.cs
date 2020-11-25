@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace OpenJuice
 {
-    public class ButtonSFX : BaseButton
+    public class ButtonPlayMusic : BaseButton
     {
         [SerializeField] AudioClip clip = null;
-        protected override void OnPressed() => Juicer.Instance.PlaySfx(clip);
+        protected override void OnPressed() => Juicer.Instance.PlayMusic(clip);
     }
 }
