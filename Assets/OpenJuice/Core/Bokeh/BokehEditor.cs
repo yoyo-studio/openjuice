@@ -44,12 +44,15 @@ namespace OpenJuice
         [Button]
         private void BakeToPrefab()
         {
+#if UNITY_EDITOR
             var prefabDirectory = Path.GetDirectoryName(AssetDatabase.GetAssetPath(bokehSprite));
             var prefab = PrefabUtility.SaveAsPrefabAsset(tempBokehHolder, prefabDirectory + "/Bokeh.prefab");
+#endif
         }
 
         private void Update()
         {
+#if UNITY_EDITOR
             if (editing == false) return;
             if (Input.GetMouseButtonDown(0))
             {
@@ -80,6 +83,7 @@ namespace OpenJuice
                 currentScale *= 1 / scaleFactor;
                 UpdatePiarticleSizes();
             }
+#endif
         }
 
         private void AddRandomMovement(SpriteRenderer bokehInstance)
