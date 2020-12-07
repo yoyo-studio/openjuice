@@ -34,13 +34,16 @@ namespace OpenJuice
         }
         public void ReleaseSource(AudioClip clip)
         {
+            AudioSource source = null;
             foreach (var audioSource in audioSourcePool.ActiveObjects)
             {
                 if (audioSource.clip == clip)
                 {
-                    ReleaseSource(audioSource);
+                    source = audioSource;
+                    break;
                 }
             }
+            if (source != null) ReleaseSource(source);
         }
         public AudioSource Play(AudioClip clip, bool loop)
         {

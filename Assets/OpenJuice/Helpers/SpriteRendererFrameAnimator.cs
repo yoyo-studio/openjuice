@@ -5,7 +5,7 @@ namespace OpenJuice
 {
     public class SpriteRendererFrameAnimator : FrameAnimatorBase
     {
-        [SerializeField] SpriteRenderer spriteRenderer;
+        [SerializeField] SpriteRenderer spriteRenderer = null;
         protected override void UpdateSprite()
         {
             spriteRenderer.sprite = frames[frameIndex];

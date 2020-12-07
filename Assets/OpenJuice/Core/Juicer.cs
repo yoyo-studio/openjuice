@@ -51,7 +51,7 @@ namespace OpenJuice
             for (int i = 0; i < effectDatabase.effectLists.Count; i++)
             {
                 EffectPack item = effectDatabase.effectLists[i];
-                effectPrefabs.AddRange(item.effects);
+                if (item != null && item.effects != null) effectPrefabs.AddRange(item.effects);
             }
         }
         public Effect PlayEffect(string effectID)

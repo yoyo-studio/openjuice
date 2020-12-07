@@ -6,7 +6,7 @@ namespace OpenJuice
 {
     public class ImageFrameAnimator : FrameAnimatorBase
     {
-        [SerializeField] Image image;
+        [SerializeField] Image image = null;
         protected override void UpdateSprite()
         {
             image.sprite = frames[frameIndex];
