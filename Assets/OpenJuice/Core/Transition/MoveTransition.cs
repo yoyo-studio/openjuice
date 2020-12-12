@@ -7,32 +7,22 @@ namespace OpenJuice
     {
         [SerializeField] Vector3 targetPosition = Vector3.zero;
 
-        public Vector3 TargetPosition { get => targetPosition; set => targetPosition = value; }
+        public Vector3 TargetPosition
+        {
+            get => targetPosition;
+            set
+            {
+                targetPosition = value;
+                if (tween != null) tween.ChangeEndValue(targetPosition);
+            }
+        }
 
         protected override Tweener MakeTweener()
         {
-            if (TransitionType == TransitionType.To)
-            {
-                return Relative == false ? MakeTweener(TargetPosition) : MakeTweener(TargetPosition).SetRelative();
-            }
-            else
-            {
-                if (Relative == false)
-                {
-                    var startPosition = transform.position;
-                    transform.position = TargetPosition;
-                    return MakeTweener(startPosition);
-                }
-                else
-                {
-                    transform.position += TargetPosition;
-                    return MakeTweener(transform.position - TargetPosition);
-                }
-            }
-        }
-        private Tweener MakeTweener(Vector3 target)
-        {
-            return transform.DOMove(target, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay);
+            tween = transform.DOMove(targetPosition, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay).SetAutoKill(false);
+            if (TransitionType == TransitionType.From) tween.From(Relative);
+            else tween.SetRelative(Relative);
+            return tween;
         }
     }
 }

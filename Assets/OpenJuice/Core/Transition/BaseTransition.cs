@@ -7,6 +7,7 @@ namespace OpenJuice
     public abstract class BaseTransition : MonoBehaviour
     {
         [SerializeField] private float duration = 0.4f;
+        [SerializeField] private bool playOnEnable = true;
         [SerializeField] private float delay = 0;
         [SerializeField] private Ease easeType = Ease.OutQuart;
         [SerializeField] private TransitionType transitionType = TransitionType.To;
@@ -22,14 +23,25 @@ namespace OpenJuice
         public int Loop { get => loop; set => loop = value; }
         public LoopType LoopType { get => loopType; set => loopType = value; }
         public bool Relative { get => relative; set => relative = value; }
-
-        public void Start()
+        private void OnEnable() { if (playOnEnable) Play(); }
+        private void OnDestroy() => tween.Kill();
+        public void Play()
         {
-            if (tween != null) DOTween.Kill(tween.id);
+            if (tween != null)
+            {
+                if (tween.IsPlaying()) return;
+                else
+                {
+                    tween.Restart();
+                    return;
+                }
+            }
             tween = MakeTweener();
         }
-
-        public Tweener GetTweener() => tween;
+        public void PlayReverse()
+        {
+            if (tween != null) tween.SmoothRewind();
+        }
 
         protected abstract Tweener MakeTweener();
     }

@@ -27,7 +27,7 @@ namespace OpenJuice
                 stopped = false;
                 var deltaPosition = previousPosition - currentPosition;
                 Vector3 deltaScale = new Vector3(startScale.x + Mathf.Abs(deltaPosition.x), startScale.y + Mathf.Abs(deltaPosition.y), startScale.z + Mathf.Abs(deltaPosition.z));
-                Debug.Log("[Delta position]: " + deltaPosition);
+                // Debug.Log("[Delta position]: " + deltaPosition);
                 transform.localScale = Vector3.Scale(startScale, deltaScale);
                 previousPosition = currentPosition;
             }

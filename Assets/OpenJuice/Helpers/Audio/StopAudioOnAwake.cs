@@ -5,7 +5,7 @@ namespace OpenJuice
 {
     public class StopAudioOnAwake : MonoBehaviour
     {
-        [SerializeField] AudioClip clip;
+        [SerializeField] AudioClip clip = null;
         private void Awake() => Juicer.Instance.StopSFX(clip);
     }
 }

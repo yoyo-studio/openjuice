@@ -7,31 +7,23 @@ namespace OpenJuice
     public class RotateTransition : BaseTransition
     {
         [SerializeField] Vector3 targetRotation = Vector3.zero;
-        protected override Tweener MakeTweener()
+
+        public Vector3 TargetRotation
         {
-            if (TransitionType == TransitionType.To)
+            get => targetRotation;
+            set
             {
-                return Relative == false ? MakeTweener(targetRotation) : MakeTweener(targetRotation).SetRelative();
-            }
-            else
-            {
-                if (Relative == false)
-                {
-                    var startRotation = transform.localRotation.eulerAngles;
-                    transform.Rotate(targetRotation);
-                    return MakeTweener(startRotation);
-                }
-                else
-                {
-                    transform.Rotate(targetRotation);
-                    return MakeTweener(transform.position - targetRotation);
-                }
+                targetRotation = value;
+                if (tween != null) tween.ChangeEndValue(targetRotation);
             }
         }
 
-        private Tweener MakeTweener(Vector3 target)
+        protected override Tweener MakeTweener()
         {
-            return transform.DOLocalRotate(target, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay);
+            tween = transform.DOLocalRotate(TargetRotation, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay).SetAutoKill(false);
+            if (TransitionType == TransitionType.From) tween.From(Relative);
+            else tween.SetRelative(Relative);
+            return tween;
         }
     }
 }
