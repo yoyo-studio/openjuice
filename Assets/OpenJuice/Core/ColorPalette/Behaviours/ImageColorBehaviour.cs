@@ -10,9 +10,9 @@ namespace OpenJuice
         public override void UpdateColor()
         {
             if (image == null) image = GetComponent<Image>();
-            var colorNameIndex = ColorPalette.currentColorPalette.colors.FindIndex(x => x.colorNameObject.name == colorNameObject.name);
+            var colorNameIndex = ColorPalette.CurrentColorPalette.colors.FindIndex(x => x.colorNameObject.name == colorNameObject.name);
             if (colorNameIndex != -1 && image != null)
-                image.color = ColorPalette.currentColorPalette.colors[colorNameIndex].color;
+                image.color = ColorPalette.CurrentColorPalette.colors[colorNameIndex].color;
         }
     }
 }

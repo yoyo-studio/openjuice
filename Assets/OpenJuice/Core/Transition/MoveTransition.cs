@@ -9,17 +9,16 @@ namespace OpenJuice
 
         public Vector3 TargetPosition
         {
-            get => targetPosition;
-            set
+            get => targetPosition; set
             {
                 targetPosition = value;
-                if (tween != null) tween.ChangeEndValue(targetPosition);
+                MakeTweener();
             }
         }
 
         protected override Tweener MakeTweener()
         {
-            tween = transform.DOMove(targetPosition, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay).SetAutoKill(false);
+            tween = transform.DOMove(TargetPosition, Duration).SetEase(EaseType).SetLoops(Loop, LoopType).SetDelay(Delay).SetAutoKill(false);
             if (TransitionType == TransitionType.From) tween.From(Relative);
             else tween.SetRelative(Relative);
             return tween;

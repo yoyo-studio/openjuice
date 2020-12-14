@@ -12,7 +12,7 @@ namespace OpenJuice
         [Button("Apply Color")]
         public void ApplyColors()
         {
-            if (ColorPalette.currentColorPalette != null)
+            if (ColorPalette.CurrentColorPalette != null)
                 ColorPalette.UpdateSceneColors();
             else
                 Debug.LogWarning("Please select a color palette first");

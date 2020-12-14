@@ -19,10 +19,13 @@ namespace OpenJuice
         private bool editing;
         private GameObject tempBokehHolder;
         private Texture2D screenTexture;
+        System.Random random;
+        int randomPercent = 0;
 
         private void Awake()
         {
             editing = true;
+            random = new System.Random();
             tempBokehHolder = new GameObject("temp-bokeh-holder");
             tempBokehHolder.transform.SetParent(transform, false);
             screenTexture = ScreenCapture.CaptureScreenshotAsTexture();
@@ -47,6 +50,7 @@ namespace OpenJuice
 #if UNITY_EDITOR
             var prefabDirectory = Path.GetDirectoryName(AssetDatabase.GetAssetPath(bokehSprite));
             var prefab = PrefabUtility.SaveAsPrefabAsset(tempBokehHolder, prefabDirectory + "/Bokeh.prefab");
+            Selection.activeObject = prefab;
 #endif
         }
 
@@ -88,10 +92,10 @@ namespace OpenJuice
 
         private void AddRandomMovement(SpriteRenderer bokehInstance)
         {
-            System.Random gen = new System.Random();
-            int prob = gen.Next(100);
-            if (prob <= movementPercent)
+            randomPercent = random.Next(100);
+            if (randomPercent <= movementPercent)
             {
+                bokehInstance.gameObject.name += "-Move";
                 var moveTransition = bokehInstance.gameObject.AddComponent<MoveTransition>();
                 moveTransition.Duration = Random.Range(3, 5);
                 moveTransition.Delay = Random.Range(0, 2);
@@ -101,14 +105,18 @@ namespace OpenJuice
                 moveTransition.LoopType = DG.Tweening.LoopType.Yoyo;
                 moveTransition.Relative = true;
                 moveTransition.TargetPosition = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f));
+                // moveTransition.Play();
             }
         }
 
         private void AddRandomFlicker(SpriteRenderer bokehInstance)
         {
-            System.Random gen = new System.Random();
-            int prob = gen.Next(100);
-            if (prob <= flickerPercent) bokehInstance.gameObject.AddComponent<LightFlickerEffect>();
+            randomPercent = random.Next(100);
+            if (randomPercent <= flickerPercent)
+            {
+                bokehInstance.gameObject.name += "-Flicker";
+                bokehInstance.gameObject.AddComponent<LightFlickerEffect>();
+            }
         }
 
         private void UpdatePiarticleSizes()

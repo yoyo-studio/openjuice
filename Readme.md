@@ -1,28 +1,45 @@
 # OpenJuice
 
-Based on [Juice it or loose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg) talk and some other references, this repo tries to cover methods to juice up your unity games.
+OpenJuice tries to cover methods to juice up your unity games.
 
 ## Features:
 
 ## 1- Color
 
-![image](https://git.cafebazaar.ir/omid.saadat/openjuice/uploads/982cd0b01ead0d7971f793a9521f0fa7/image.png)
+![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/8b87aac7a6fa0d6c9c71f6492456c561/OpenJuice_Color.gif)
 
-Make sure your things have fun colors!
-This repository provides some color palettes to use.
-You also can make your own color palettes from [Adobe Colors](https://color.adobe.com/create/color-wheel) or [Coolors](https://coolors.co/palettes/popular) or read [this tutorial](https://gamedevelopment.tutsplus.com/articles/picking-a-color-palette-for-your-games-artwork--gamedev-1174) to get more information about this topic.
+Helps you to change the whole scene color in edit mode or runtime.
+OpenJuice comes with 3 color palettes to use. You also can make your own color palettes from [Adobe Colors](https://color.adobe.com/create/color-wheel) or [Coolors](https://coolors.co/palettes/popular) or read [this tutorial](https://gamedevelopment.tutsplus.com/articles/picking-a-color-palette-for-your-games-artwork--gamedev-1174) to get more information about this topic.
 
 ### Usage:
 
-1- Create a ColorPaletteScriptable Object or use pre-made ones. and fill it with some colorName objects and colors pairs. (you can use premade colorNameObjects or create new ones from "OpenJuice/Coloring/ColorNameObject" in create asset menu)
+1- Create a `ColorPaletteScriptable` Object or use pre-made ones. and fill it with some colorName objects and colors pairs. (you can use premade colorNameObjects or create new ones from `"OpenJuice/Coloring/ColorNameObject"` in create asset menu)
 
-2- On your images, texts, renderers, or cameras do not set color manually. Instead use [Whatever]ColorBehaviour components on them and set the ColorNameObject field. i.e. ImageColorBehaviour for setting desired image.
+2- Do NOT manually set color On your images, texts, renderers, or cameras. Instead use `[Whatever]ColorBehaviour` components on them and set the ColorNameObject field. i.e. `ImageColorBehaviour` for Image.
 
-3- Select your ColorPaletteScriptable and click on SetAsCurrent button.
+3- Select your `ColorPaletteScriptable` and click on `SetAsCurrent` button.
 
 Note: this will only change colors for current scene openned only. if you have multiple scenes, you need to open them as well and press SetAsCurrent button on your ColorPaletteScriptable again.
 
 You can also check `01_ColorPaletteExampleScene` scene to test pre-made color palettes.
+
+## BokehEditor
+
+![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/5f90b03a8a89a84549c5b96126257a70/OpenJuice_BokehEditor.gif)
+
+### Usage
+
+1- Prepare a static blured image.
+
+2- Add BokehEditor component to an empty game object.
+
+3- Assign material and sprite to use for bokeh and set flicker and movement chance.
+
+4- Press Play and click on your scene. this will instantiate bokeh instances and **You can change all bokeh sizes with mouse scroll**
+
+5- Press StopEditing, manually change instances component parameters if needed and Bake to prefab. it will make a prefab in bokeh sprite path.
+
+![OpenJuice_BokehEditor_WIP](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b748d9820fb6349df83c60a5f8ffafc9/OpenJuice_BokehEditor_WIP.gif)
 
 ## 2- Tweening
 
@@ -56,3 +73,5 @@ Simply Add MoveTransition component to your GameObjects and config your desired 
 - Flash
 - Personalize things (like by adding eyes and mouth to them)
 - Bloom
+
+External Links: [Juice it or loose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
