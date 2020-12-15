@@ -2,6 +2,8 @@
 
 OpenJuice tries to cover methods to juice up your unity games.
 
+**Warning: This repository is highly under development**
+
 ## Features:
 
 ## 1- Color
@@ -20,6 +22,10 @@ OpenJuice comes with 3 color palettes to use. You also can make your own color p
 3- Select your `ColorPaletteScriptable` and click on `SetAsCurrent` button.
 
 Note: this will only change colors for current scene openned only. if you have multiple scenes, you need to open them as well and press SetAsCurrent button on your ColorPaletteScriptable again.
+
+### Using C#
+
+Use `ColorPalette.UpdateSceneColors()` to update current scene colors.
 
 You can also check `01_ColorPaletteExampleScene` scene to test pre-made color palettes.
 
@@ -41,6 +47,20 @@ You can also check `01_ColorPaletteExampleScene` scene to test pre-made color pa
 
 ![OpenJuice_BokehEditor_WIP](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b748d9820fb6349df83c60a5f8ffafc9/OpenJuice_BokehEditor_WIP.gif)
 
+## Easy Effects
+
+All effects will have their own objectPool in case you want to play some effects multiple time.
+
+Effects can have 3 audios `StartClip` for the moment effect plays, `LoopClip` for effect lifetime and `EndClip` for after releasing effect.
+
+### Usage:
+
+- Add `Effect` component to any prefab and asign audio clips if needed
+- Add prefab to your own `EffectPack` scriptable object (create your own from `CreateAssetMenu/OpenJuice/Effects/EffectPack`) or add it to `SampleEffectPack` located at `../OpenJuice/Effects/SampleEffectPack` scriptable object
+- Add your effect pack to `EffectDatabase` located in `OpenJuice/Effects/Resources/EffectDatabase` path.
+- Use `Juicer.PlayEffect(EffectName);` to play effect. it will return the Effect and you can keep it, modify it or release it when you want.
+- Use `Juicer.ReleaseEffect(Effect);` to release effect. Please do not destroy effect game objects.
+
 ## 2- Tweening
 
 This repo uses [DoTween](http://dotween.demigiant.com/inde) library to tween different things.
@@ -50,7 +70,7 @@ These effects are supported:
 
 Simply Add MoveTransition component to your GameObjects and config your desired values.
 
-![MoveTransitions](https://git.cafebazaar.ir/omid.saadat/openjuice/uploads/a8d4ff0a1d6a902bebeabd43568f9fa8/MoveTransitions.gif)
+![MoveTransitions](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/a8d4ff0a1d6a902bebeabd43568f9fa8/MoveTransitions.gif)
 
 - Moving things:
   - Move objects with tweens.

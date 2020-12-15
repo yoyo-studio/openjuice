@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32905bf101c9873459a2d61a23463648, type: 3}
   m_Name: ColorPaletteSetting
   m_EditorClassIdentifier: 
+  currentColorPalette: {fileID: 11400000, guid: 1f20c7fa4becfde44ad7a9ec1efa18ac,
+    type: 2}
