@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.4
+  playOnEnable: 1
   delay: 0
   easeType: 12
   transitionType: 1
@@ -127,4 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856088db5e3a7e34ba5b4f4000d9414c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0
+  startClip: {fileID: 0}
+  loopClip: {fileID: 0}
+  endClip: {fileID: 0}
+  duration: 2

@@ -1,4 +1,6 @@
 ﻿// Copyright (c) 2020 Omid Saadat (@omid3098)
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace OpenJuice
@@ -9,24 +11,41 @@ namespace OpenJuice
         [SerializeField] AudioClip startClip = null;
         [SerializeField] AudioClip loopClip = null;
         [SerializeField] AudioClip endClip = null;
+        [SerializeField] float duration = 0f;
         private AudioSource loopSource;
-        private bool effectEnabled;
+        private bool effectStarted;
 
         public virtual void PlayStartEffect()
         {
             if (startClip != null) Juicer.Instance.PlaySfx(startClip, PlayLoopEffect);
-            effectEnabled = true;
+            effectStarted = true;
+            if (duration >= 0)
+            {
+                WaitForEffectDuration();
+            }
         }
+
+        private async void WaitForEffectDuration()
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
+            Juicer.Instance.ReleaseEffect(this);
+        }
+
         public virtual void PlayLoopEffect() { if (loopClip != null) loopSource = Juicer.Instance.PlaySfx(loopClip, true); }
         public virtual void PlayEndEffect() { if (endClip != null) Juicer.Instance.PlaySfx(endClip); }
         private void OnDisable()
         {
-            if (effectEnabled == true)
+            StopEffectSFX();
+        }
+
+        private void StopEffectSFX()
+        {
+            if (effectStarted == true)
             {
                 if (loopSource != null) Juicer.Instance.StopSFX(loopSource);
                 PlayEndEffect();
             }
-            effectEnabled = false;
+            effectStarted = false;
         }
     }
 }

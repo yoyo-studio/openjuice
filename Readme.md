@@ -6,7 +6,10 @@ OpenJuice tries to cover methods to juice up your unity games.
 
 ## Features:
 
-## 1- Color
+- [Color](#Color)
+- [Bokeh](#Bokeh)
+
+## Color
 
 ![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/8b87aac7a6fa0d6c9c71f6492456c561/OpenJuice_Color.gif)
 
@@ -29,7 +32,7 @@ Use `ColorPalette.UpdateSceneColors()` to update current scene colors.
 
 You can also check `01_ColorPaletteExampleScene` scene to test pre-made color palettes.
 
-## BokehEditor
+## Bokeh
 
 ![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/5f90b03a8a89a84549c5b96126257a70/OpenJuice_BokehEditor.gif)
 
@@ -47,30 +50,33 @@ You can also check `01_ColorPaletteExampleScene` scene to test pre-made color pa
 
 ![OpenJuice_BokehEditor_WIP](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b748d9820fb6349df83c60a5f8ffafc9/OpenJuice_BokehEditor_WIP.gif)
 
-## Easy Effects
+## Easy Effects (Fire and forget!)
 
 All effects will have their own objectPool in case you want to play some effects multiple time.
 
-Effects can have 3 audios `StartClip` for the moment effect plays, `LoopClip` for effect lifetime and `EndClip` for after releasing effect.
+Effects can have 3 audios `StartClip` for the moment effect plays, `LoopClip` for effect lifetime and `EndClip` for after releasing effect. Duration parameter is for effect duration and if you set it to greater than 0, it will be automatically released.
 
 ### Usage:
 
 - Add `Effect` component to any prefab and asign audio clips if needed
 - Add prefab to your own `EffectPack` scriptable object (create your own from `CreateAssetMenu/OpenJuice/Effects/EffectPack`) or add it to `SampleEffectPack` located at `../OpenJuice/Effects/SampleEffectPack` scriptable object
 - Add your effect pack to `EffectDatabase` located in `OpenJuice/Effects/Resources/EffectDatabase` path.
-- Use `Juicer.PlayEffect(EffectName);` to play effect. it will return the Effect and you can keep it, modify it or release it when you want.
+- Use `Juicer.PlayEffect(EffectName);` to play effect. it will return the Effect and you can keep it, modify it or release it when you want. Please note that if you set duration for effects, they will be released automatically and there is no need to release them manually.
 - Use `Juicer.ReleaseEffect(Effect);` to release effect. Please do not destroy effect game objects.
 
-## 2- Tweening
+## Transitions:
+
+![Transitions](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b7435cdcc8a83a66e7c338b9442a761a/Transitions.gif)
 
 This repo uses [DoTween](http://dotween.demigiant.com/inde) library to tween different things.
-These effects are supported:
 
-## Move Transition:
+You can use `MoveTransition`, `ScaleTransition`, `RotateTransision` or write your own transitions inherited from `BaseTransition` class
 
-Simply Add MoveTransition component to your GameObjects and config your desired values.
+Another cool feature is animating Text characters separately.
 
-![MoveTransitions](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/a8d4ff0a1d6a902bebeabd43568f9fa8/MoveTransitions.gif)
+Simply Add [Move/Scale/Rotate]Transition component to your GameObjects and config your desired values.
+
+![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/c8975184fc9b88d6cb6df68a810507f3/image.png)
 
 - Moving things:
   - Move objects with tweens.

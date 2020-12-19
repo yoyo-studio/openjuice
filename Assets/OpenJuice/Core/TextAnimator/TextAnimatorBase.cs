@@ -1,7 +1,5 @@
 ﻿// Copyright (c) 2020 Omid Saadat (@omid3098)
-using System;
 using CharTween;
-using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
