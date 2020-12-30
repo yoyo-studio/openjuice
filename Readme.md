@@ -78,6 +78,22 @@ Simply Add [Move/Scale/Rotate]Transition component to your GameObjects and confi
 
 ![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/c8975184fc9b88d6cb6df68a810507f3/image.png)
 
+## UiEffects
+
+Some Ui Effects made by [Mob Sakai](https://github.com/mob-sakai)
+
+You can read documentation from [here](https://github.com/mob-sakai/UIEffect)
+
+![UiEffect](https://user-images.githubusercontent.com/12690315/41398364-155cf5a6-6ff2-11e8-8124-9d16ef6ca267.gif)
+
+## SceneTransition
+
+Its better to do some transitions before changing scenes.
+So insted of using
+</br>`SceneManager.LoadScene("sceneName")`
+</br> you can use:
+</br>`Juicer.Instance.LoadScene("sceneName")`
+
 - Moving things:
   - Move objects with tweens.
   - Stretch in move direction.

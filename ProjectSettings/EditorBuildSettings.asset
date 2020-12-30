@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/OpenJuice/Example/07_SceneTransition/07_SceneTransition_1.unity
+    guid: 21031e94551585c4596488acf840bfc9
+  - enabled: 1
+    path: Assets/OpenJuice/Example/07_SceneTransition/07_SceneTransition_2.unity
+    guid: 03b9197da9e95eb42a9ce4921b4a6ecd
+  - enabled: 1
+    path: Assets/OpenJuice/Example/01_ColorPaletteExampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/OpenJuice/Example/06_TextAnimator.unity
+    guid: 84d249da2b8e1a844a3e80bf541c61ab
+  - enabled: 1
+    path: Assets/OpenJuice/Example/05_FrameAnimator.unity
+    guid: 0855a7a0075ae8f49a4927c7b70026ed
+  - enabled: 1
+    path: Assets/OpenJuice/Example/03_SpawnEffects.unity
+    guid: c6d015b7ba200b94a8a17de3cb25a6fc
+  - enabled: 1
+    path: Assets/OpenJuice/Example/04_BokehEditor.unity
+    guid: 4c549109b0280784585ebcb8b2ac4b4a
+  - enabled: 1
+    path: Assets/OpenJuice/Example/02_TransformTransitions.unity
+    guid: c4a320fd4f8ae0a43911bce796bf5af5
   m_configObjects: {}

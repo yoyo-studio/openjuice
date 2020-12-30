@@ -19,7 +19,7 @@ namespace OpenJuice
         {
             if (startClip != null) Juicer.Instance.PlaySfx(startClip, PlayLoopEffect);
             effectStarted = true;
-            if (duration >= 0)
+            if (duration > 0)
             {
                 WaitForEffectDuration();
             }

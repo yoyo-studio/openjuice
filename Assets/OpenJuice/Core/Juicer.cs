@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 namespace OpenJuice
 {
     public class Juicer : Singleton<Juicer>
@@ -11,11 +13,25 @@ namespace OpenJuice
         private List<Effect> effectPrefabs;
         private AudioPlayer sfxAudioPlayer;
         private AudioPlayer musicAudioPlayer;
+        private TransitionEffect transitionEffect;
 
         protected override void Awake()
         {
             base.Awake();
             Initialize();
+        }
+
+        public async void LoadScene(string sceneName)
+        {
+            if (transitionEffect == null) transitionEffect = (TransitionEffect)PlayEffect("TransitionCanvas");
+            transitionEffect.Show();
+            await UniTask.Delay(TimeSpan.FromSeconds(transitionEffect.Duration));
+            SceneManager.LoadSceneAsync(sceneName).completed += LoadSceneComplete;
+        }
+
+        private void LoadSceneComplete(AsyncOperation obj)
+        {
+            transitionEffect.Hide();
         }
 
         private void Initialize()
@@ -61,7 +77,6 @@ namespace OpenJuice
             effect.PlayStartEffect();
             return effect;
         }
-
         public Effect GetEffect(string effectID)
         {
             effectsPool.TryGetValue(effectID, out ObjectPool<Effect> poolEffect);
