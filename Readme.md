@@ -94,6 +94,8 @@ So insted of using
 </br> you can use:
 </br>`Juicer.Instance.LoadScene("sceneName")`
 
+![scene-transition](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b445eaf9bd4af9e37817b3cbe701b689/scene-transition.gif)
+
 - Moving things:
   - Move objects with tweens.
   - Stretch in move direction.
