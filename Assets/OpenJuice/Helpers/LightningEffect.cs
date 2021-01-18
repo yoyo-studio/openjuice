@@ -1,8 +1,9 @@
 // Copyright (c) 2020 Omid Saadat (@omid3098)
 
+using System;
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
-
 namespace OpenJuice
 {
     public class LightningEffect : Effect
@@ -11,18 +12,18 @@ namespace OpenJuice
         public override void PlayStartEffect()
         {
             base.PlayStartEffect();
-            StartCoroutine(StartBlinkEffect());
+            StartBlinkEffect();
         }
 
-        private IEnumerator StartBlinkEffect()
+        private async void StartBlinkEffect()
         {
-            yield return new WaitForSeconds(0.2f);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             lightGameObject.SetActive(false);
-            yield return new WaitForSeconds(0.08f);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.08f));
             lightGameObject.SetActive(true);
-            yield return new WaitForSeconds(0.3f);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.3f));
             lightGameObject.SetActive(false);
-            yield return new WaitForSeconds(0.04f);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.04f));
             lightGameObject.SetActive(true);
             Juicer.Instance.ReleaseEffect(this);
         }
