@@ -2,12 +2,17 @@
 
 OpenJuice tries to cover methods to juice up your unity games.
 
+## Why Singleton?
+
+because we dont do any logics, we just work with views.
+
 **Warning: This repository is highly under development**
 
 ## Features:
 
 - [Color](#Color)
-- [Bokeh](#Bokeh)
+- [Easy Effects](#Easy-Effects)
+- [AudioPlayer](#AudioPlayer)
 
 ## Color
 
@@ -32,25 +37,11 @@ Use `ColorPalette.UpdateSceneColors()` to update current scene colors.
 
 You can also check `01_ColorPaletteExampleScene` scene to test pre-made color palettes.
 
-## Bokeh
+_TODO: The ideal state is to have a css style components to define visual behaviour of objects. so we only define something as "Button" class and all bottons have the same visual._
 
-![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/5f90b03a8a89a84549c5b96126257a70/OpenJuice_BokehEditor.gif)
+## Easy Effects
 
-### Usage
-
-1- Prepare a static blured image.
-
-2- Add BokehEditor component to an empty game object.
-
-3- Assign material and sprite to use for bokeh and set flicker and movement chance.
-
-4- Press Play and click on your scene. this will instantiate bokeh instances and **You can change all bokeh sizes with mouse scroll**
-
-5- Press StopEditing, manually change instances component parameters if needed and Bake to prefab. it will make a prefab in bokeh sprite path.
-
-![OpenJuice_BokehEditor_WIP](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b748d9820fb6349df83c60a5f8ffafc9/OpenJuice_BokehEditor_WIP.gif)
-
-## Easy Effects (Fire and forget!)
+**Spoiler alert: Fire and forget!**
 
 All effects will have their own objectPool in case you want to play some effects multiple time.
 
@@ -64,7 +55,22 @@ Effects can have 3 audios `StartClip` for the moment effect plays, `LoopClip` fo
 - Use `Juicer.PlayEffect(EffectName);` to play effect. it will return the Effect and you can keep it, modify it or release it when you want. Please note that if you set duration for effects, they will be released automatically and there is no need to release them manually.
 - Use `Juicer.ReleaseEffect(Effect);` to release effect. Please do not destroy effect game objects.
 
-## Transitions:
+## AudioPlayer
+
+There is no need to implement audio system for each game. we just need audioclips to play them as we want.
+
+OpenJuice has a fast and effective audio player that plays audioclips with desired loopType for looping musics or play once audio effects.
+It also supports object pool to recycle any free audiosources.
+Use:
+
+```
+Jucer.PlaySfx(audioclip, loop = false);
+Jucer.PlaySfx(audioclip, Action onComplete);
+Jucer.PlayMusic(audioclip, loop = true);
+Jucer.PlayMusic(audioclip, Action onComplete);
+```
+
+## Transitions
 
 ![Transitions](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b7435cdcc8a83a66e7c338b9442a761a/Transitions.gif)
 
@@ -94,28 +100,44 @@ So insted of using
 </br> you can use:
 </br>`Juicer.Instance.LoadScene("sceneName")`
 
+this method loads scene async and will fade in when loading is completed.
+
 ![scene-transition](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/b445eaf9bd4af9e37817b3cbe701b689/scene-transition.gif)
 
-- Moving things:
-  - Move objects with tweens.
+_#TODO: we can have callbacks like Juicer.Instance.OnSceneLoadComplete_
+
+## Frame Animator
+
+Easy to use component to animate spritesheets with desired FPS
+
+## Text Animator
+
+Animate TextMeshPro characters separately
+
+More things to do:
+
+- Transitions:
+  - Move objects with tweens. ✅
   - Stretch in move direction.
   - Rotate in move direction.
-  - Trail or particle
+  - Trail or particle while moving
 - Hitted things:
-  - Change scale
+  - Shake or scale some things
   - Wobble
   - Change color
-  - Shake or scale some things
   - Play sound on each hit
   - Play some particles
-  - Push things need to destroy, scale them down or shatter them
-- Music
-- Particles
+  - for destroying things, scale them down or shatter them. DONT DESTROY THEM INSTANT
+- Music ✅
+- Particles => use easy effects for this ✅
 - Slow motion/Fast speed
 - Camera Shake
 - Camera Zoom
 - Flash
 - Personalize things (like by adding eyes and mouth to them)
 - Bloom
+- Vignette
+- Chromatic Abberation
+- Color grading
 
 External Links: [Juice it or loose it](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
