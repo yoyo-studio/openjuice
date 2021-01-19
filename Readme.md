@@ -106,6 +106,24 @@ this method loads scene async and will fade in when loading is completed.
 
 _#TODO: we can have callbacks like Juicer.Instance.OnSceneLoadComplete_
 
+## ObjectPool
+
+An easy to use and fast object pool system.
+
+```csharp
+objectPool = new ObjectPool<T>(warmUpCapacity, OnCreate, OnGet, OnRelease);
+```
+
+Example:
+
+```csharp
+audioSourcePool = new ObjectPool<AudioSource>(1
+                        , () => new GameObject(name + "-audio-source").AddComponent<AudioSource>()
+                        , (audioSource) => { audioSource.gameObject.SetActive(true); }
+                        , (audioSource) => { audioSource.gameObject.SetActive(false); });
+
+```
+
 ## Frame Animator
 
 Easy to use component to animate spritesheets with desired FPS
