@@ -1,0 +1,53 @@
+{
+  "name": "com.yoyo-studio.openjuice",
+  "displayName": "OpenJuice",
+  "version": "1.0.0",
+  "description": "OpenJuice tries to cover methods to juice up your unity games.",
+  "unity": "2018.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoyo-studio/openjuice.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "YoYo Studio"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoyo-studio/openjuice/issues"
+  },
+  "homepage": "https://github.com/yoyo-studio/openjuice#readme",
+
+  "samples": [
+    {
+      "displayName": "Color Palette",
+      "description": "Color Palette Example Scene",
+      "path": "Samples~/01_ColorPaletteExampleScene"
+    },
+    {
+      "displayName": "Transform Transitions",
+      "description": "Transform Transitions Example Scene",
+      "path": "Samples~/02_TransformTransitions"
+    },
+    {
+      "displayName": "Spawn Effects",
+      "description": "Spawn Effects Example Scene",
+      "path": "Samples~/03_SpawnEffects"
+    },
+    {
+      "displayName": "Frame Animator",
+      "description": "Frame Animator Example Scene",
+      "path": "Samples~/04_FrameAnimator"
+    },
+    {
+      "displayName": "Text Animator",
+      "description": "Text Animator Example Scene",
+      "path": "Samples~/05_TextAnimator"
+    },
+    {
+      "displayName": "Scene Transition",
+      "description": "Scene Transition Example Scene",
+      "path": "Samples~/06_SceneTransition"
+    }
+  ]
+}
