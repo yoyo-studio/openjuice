@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git+https://github.com/yoyo-studio/openjuice.git"
   },
+  "dependencies": {
+    "com.cysharp.unitask": "2.0.0"
+  },
   "keywords": [],
   "author": {
     "name": "YoYo Studio"
