@@ -1,9 +1,13 @@
 ﻿// Copyright (c) 2020 Omid Saadat (@omid3098)
 using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
+
+#if UI_EFFECT
+using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
+
+#endif
 
 namespace YoYoStudio.OpenJuice
 {
@@ -13,7 +17,11 @@ namespace YoYoStudio.OpenJuice
         private List<Effect> effectPrefabs;
         private AudioPlayer sfxAudioPlayer;
         private AudioPlayer musicAudioPlayer;
+
+#if UI_EFFECT
+
         private TransitionEffect transitionEffect;
+#endif
 
         protected override void Awake()
         {
@@ -21,6 +29,7 @@ namespace YoYoStudio.OpenJuice
             Initialize();
         }
 
+#if UI_EFFECT
         public async void LoadScene(string sceneName)
         {
             if (transitionEffect == null) transitionEffect = (TransitionEffect)PlayEffect("TransitionCanvas");
@@ -33,6 +42,7 @@ namespace YoYoStudio.OpenJuice
         {
             transitionEffect.Hide();
         }
+#endif
 
         private void Initialize()
         {
