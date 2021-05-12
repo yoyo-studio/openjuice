@@ -9,7 +9,7 @@
     "url": "git+https://github.com/yoyo-studio/openjuice.git"
   },
   "dependencies": {
-    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+    "com.cysharp.unitask": "git+https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
   },
   "keywords": [],
   "author": {
