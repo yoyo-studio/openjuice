@@ -1,9 +1,11 @@
 {
     "name": "YoYoStudio.OpenJuice",
+    "rootNamespace": "",
     "references": [
-        "GUID:c0fd1dd5428b44d4c91d1a0ecec5b52d",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:fcf09178cb3fef2468ecc426439e45af"
+        "Juicer.Core",
+        "UniTask",
+        "SingletonLib",
+        "NaughtyAttributes.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -12,6 +14,17 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.dbrizov.naughtyattributes",
+            "expression": "",
+            "define": "NAUGHTY_ATTRIBUTES"
+        },
+        {
+            "name": "com.coffee.ui-effect",
+            "expression": "",
+            "define": "UI_EFFECT"
+        }
+    ],
     "noEngineReferences": false
 }
