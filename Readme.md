@@ -25,6 +25,15 @@ or add `"com.yoyo-studio.openjuice": "https://github.com/yoyo-studio/openjuice.g
 * Ui Effects (Optional): [Installation Docs](https://github.com/mob-sakai/UIEffect#using-git-for-unity-20183-or-later)
 * Naughty Attributes (Optional): [Installation Docs](https://github.com/dbrizov/NaughtyAttributes#installation)
 
+
+If you want to install everything, add these lines to your `manifest.json` file in `dependencies` section:
+```
+"com.yoyo-studio.openjuice": "https://github.com/yoyo-studio/openjuice.git?path=Assets/YoYoStudio/OpenJuice",
+"com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask", 
+"com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
+"com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+```
+
 ## Color
 
 ![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/8b87aac7a6fa0d6c9c71f6492456c561/OpenJuice_Color.gif)
