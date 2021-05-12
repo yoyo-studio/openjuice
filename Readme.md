@@ -14,6 +14,11 @@ because we dont do any logics, we just work with views.
 - [Easy Effects](#Easy-Effects)
 - [AudioPlayer](#AudioPlayer)
 
+## Requirements 
+* UniTask: [Installation Docs](https://github.com/Cysharp/UniTask#install-via-git-url)
+* Ui Effects (Optional): [Installation Docs](https://github.com/mob-sakai/UIEffect#using-git-for-unity-20183-or-later)
+* Naughty Attributes (Optional): [Installation Docs](https://github.com/dbrizov/NaughtyAttributes#installation)
+
 ## Color
 
 ![image](https://git.cafebazaar.ir/cafebazi-studio/openjuice/uploads/8b87aac7a6fa0d6c9c71f6492456c561/OpenJuice_Color.gif)
@@ -87,6 +92,16 @@ Simply Add [Move/Scale/Rotate]Transition component to your GameObjects and confi
 ## UiEffects
 
 Some Ui Effects made by [Mob Sakai](https://github.com/mob-sakai)
+
+To install Ui Effects, find the manifest.json file in the Packages folder of your project and edit it to look like this:
+```
+{
+ "dependencies": {
+ "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
+ ...
+ },
+}
+```
 
 You can read documentation from [here](https://github.com/mob-sakai/UIEffect)
 
