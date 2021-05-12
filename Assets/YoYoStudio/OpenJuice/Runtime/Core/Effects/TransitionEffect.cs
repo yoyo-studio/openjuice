@@ -1,4 +1,5 @@
-using System;
+#if UI_EFFECT
+
 using Coffee.UIEffects;
 using UnityEngine;
 // Copyright (c) 2020 Omid Saadat (@omid3098)
@@ -21,3 +22,4 @@ namespace YoYoStudio.OpenJuice
         internal double Duration => transitionEffect.effectPlayer.duration;
     }
 }
+#endif

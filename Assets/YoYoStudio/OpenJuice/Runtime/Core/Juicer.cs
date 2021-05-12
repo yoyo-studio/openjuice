@@ -1,9 +1,13 @@
 ﻿// Copyright (c) 2020 Omid Saadat (@omid3098)
+
 using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
+
+#if UI_EFFECT
+using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
+#endif
 
 namespace YoYoStudio.OpenJuice
 {
@@ -13,7 +17,10 @@ namespace YoYoStudio.OpenJuice
         private List<Effect> effectPrefabs;
         private AudioPlayer sfxAudioPlayer;
         private AudioPlayer musicAudioPlayer;
+
+#if UI_EFFECT
         private TransitionEffect transitionEffect;
+#endif
 
         protected override void Awake()
         {
@@ -21,6 +28,7 @@ namespace YoYoStudio.OpenJuice
             Initialize();
         }
 
+#if UI_EFFECT
         public async void LoadScene(string sceneName)
         {
             if (transitionEffect == null) transitionEffect = (TransitionEffect)PlayEffect("TransitionCanvas");
@@ -33,6 +41,7 @@ namespace YoYoStudio.OpenJuice
         {
             transitionEffect.Hide();
         }
+#endif
 
         private void Initialize()
         {
@@ -71,12 +80,14 @@ namespace YoYoStudio.OpenJuice
                 if (item != null && item.effects != null) effectPrefabs.AddRange(item.effects);
             }
         }
+
         public Effect PlayEffect(string effectID)
         {
             var effect = GetEffect(effectID);
             effect.PlayStartEffect();
             return effect;
         }
+
         public Effect GetEffect(string effectID)
         {
             effectsPool.TryGetValue(effectID, out ObjectPool<Effect> poolEffect);
@@ -84,15 +95,18 @@ namespace YoYoStudio.OpenJuice
             {
                 return poolEffect.Get();
             }
+
             Debug.LogError("No effect found with id: " + effectID);
             return null;
         }
+
         public void ReleaseEffect(Effect effect)
         {
             if (effect.transform.IsChildOf(transform) == false)
             {
                 effect.transform.SetParent(transform, false);
             }
+
             effectsPool.TryGetValue(effect.Id, out ObjectPool<Effect> poolEffect);
             if (poolEffect != null)
             {
@@ -103,6 +117,7 @@ namespace YoYoStudio.OpenJuice
                 Debug.LogError("No pool was found for effect: " + effect.Id);
             }
         }
+
         public AudioSource PlaySfx(AudioClip clip, bool loop = false) => sfxAudioPlayer.Play(clip, loop);
         public AudioSource PlaySfx(AudioClip clip, Action onComplete) => sfxAudioPlayer.Play(clip, onComplete);
         public AudioSource PlayMusic(AudioClip clip, bool loop = true) => musicAudioPlayer.Play(clip, loop);
